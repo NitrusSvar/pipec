@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас - Armenian Flavors</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .about-page {
+            padding: 40px 0;
+        }
+        
+        .about-hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .about-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .section-block {
+            margin-bottom: 60px;
+            padding: 40px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .section-block h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border-color);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            background: #f9f9f9;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 30px;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-member {
+            text-align: center;
+        }
+        
+        .member-photo {
+            width: 150px;
+            height: 150px;
+            background: #f0f0f0;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: var(--primary-color);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary-color);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            width: 50%;
+            padding-right: 40px;
+        }
+        
+        .timeline-item:nth-child(even) {
+            margin-left: 50%;
+            padding-right: 0;
+            padding-left: 40px;
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .timeline-date {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: var(--radius);
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+        
+        .cuisine-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .cuisine-card {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: var(--radius);
+        }
+        
+        .cuisine-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline:before {
+                left: 30px;
+            }
+            
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                width: 100%;
+                margin-left: 0;
+                padding-left: 60px;
+                padding-right: 0;
+            }
+            
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-block {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="../index.html" class="logo">
+                    <i class="fas fa-utensils"></i>
+                    <span>Armenian Flavors</span>
+                </a>
+                
+                <div class="nav-menu">
+                    <a href="../index.html" class="nav-link">Главная</a>
+                    <a href="catalog.html" class="nav-link">Каталог рецептов</a>
+                    <a href="add-recipe.html" class="nav-link">Добавить рецепт</a>
+                    <a href="about.html" class="nav-link active">О нас</a>
+                </div>
+                
+                <div class="nav-actions">
+                 
+                    <a href="auth.html" class="btn btn-outline" id="authBtn">
+                        <i class="fas fa-user"></i>
+                        <span>Войти</span>
+                    </a>
+                    <a href="profile.html" class="btn btn-primary hidden" id="profileBtn">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Профиль</span>
+                    </a>
+                </div>
+                
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Герой-секция -->
+    <section class="about-hero">
+        <div class="container">
+            <h1>О проекте Armenian Flavors</h1>
+            <p>Сохраняя традиции армянской кухни для будущих поколений</p>
+        </div>
+    </section>
+
+    <!-- Основное содержимое -->
+    <main class="container about-page">
+        <div class="about-content">
+            
+            <!-- О проекте -->
+            <div class="section-block">
+                <h2>Наша миссия</h2>
+                <p><strong>Armenian Flavors</strong> — это больше чем просто кулинарный портал. Это цифровая энциклопедия армянской кухни, созданная для сохранения и популяризации богатых кулинарных традиций Армении.</p>
+                <p>Мы верим, что каждая семья хранит уникальные рецепты, передающиеся из поколения в поколение. Наша цель — собрать эти сокровища в одном месте, чтобы они не были утеряны и стали доступны всем любителям вкусной и здоровой пищи.</p>
+            </div>
+            
+            <!-- Армянская кухня -->
+            <div class="section-block">
+                <h2>Армянская кухня: история и особенности</h2>
+                <p>Армянская кухня — одна из древнейших в мире, её история насчитывает более 3000 лет. Она формировалась под влиянием географических и климатических особенностей Армянского нагорья, а также культурных традиций разных эпох.</p>
+                
+                <div class="cuisine-features">
+                    <div class="cuisine-card">
+                        <h3>Основные особенности</h3>
+                        <ul>
+                            <li>Обилие свежей зелени и трав</li>
+                            <li>Использование качественного мяса</li>
+                            <li>Натуральные молочные продукты</li>
+                            <li>Сезонные овощи и фрукты</li>
+                            <li>Традиционные специи и приправы</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="cuisine-card">
+                        <h3>Знаменитые блюда</h3>
+                        <ul>
+                            <li>Хоровац (армянский шашлык)</li>
+                            <li>Долма (голубцы в виноградных листьях)</li>
+                            <li>Лаваш (традиционный хлеб)</li>
+                            <li>Ариса (каша из мяса и пшеницы)</li>
+                            <li>Гата (сладкая выпечка)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Преимущества платформы -->
+            <div class="section-block">
+                <h2>Почему выбирают Armenian Flavors?</h2>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Богатая коллекция</h3>
+                        <p>Более 500 проверенных рецептов армянской кухни с подробными инструкциями</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Сообщество</h3>
+                        <p>Тысячи кулинаров делятся опытом, советами и семейными рецептами</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Удобный доступ</h3>
+                        <p>Адаптивный дизайн для комфортного использования на любых устройствах</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Проверенные рецепты</h3>
+                        <p>Все рецепты проверяются на соответствие традициям армянской кухни</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- История проекта -->
+            <div class="section-block">
+                <h2>История проекта</h2>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Январь 2023</div>
+                            <h3>Идея проекта</h3>
+                            <p>Возникла идея создания цифровой платформы для сохранения рецептов армянской кухни</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Май 2023</div>
+                            <h3>Начало разработки</h3>
+                            <p>Собрана команда энтузиастов и начата работа над созданием сайта</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Сентябрь 2023</div>
+                            <h3>Запуск бета-версии</h3>
+                            <p>Первые пользователи получили доступ к платформе и начали добавлять рецепты</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Январь 2024</div>
+                            <h3>Официальный запуск</h3>
+                            <p>Полноценный запуск платформы Armenian Flavors для всех пользователей</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Команда -->
+            <div class="section-block">
+                <h2>Наша команда</h2>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Анна Петросян</h3>
+                        <p>Основатель проекта, шеф-повар</p>
+                        <p>Специалист по армянской кухне с 15-летним опытом</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Артем Аванесян</h3>
+                        <p>Технический директор</p>
+                        <p>Разработчик с опытом создания кулинарных платформ</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Марина Геворгян</h3>
+                        <p>Контент-менеджер</p>
+                        <p>Историк кулинарии, автор кулинарных книг</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Давид Саркисян</h3>
+                        <p>Сообщество и поддержка</p>
+                        <p>Организатор кулинарных мастер-классов</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Контакты -->
+            <div class="section-block">
+                <h2>Контакты</h2>
+                <p>Мы всегда рады обратной связи, предложениям о сотрудничестве и новым рецептам!</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>info@armenianflavors.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>Телефон</h3>
+                            <p>+7 (XXX) XXX-XX-XX</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Адрес</h3>
+                            <p>Ереван, ул. Армянская, 15</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h3>Режим работы</h3>
+                            <p>Пн-Пт: 9:00-18:00</p>
+                            <p>Сб-Вс: техническая поддержка</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Форма обратной связи -->
+            <div class="section-block">
+                <h2>Обратная связь</h2>
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contactName">Имя</label>
+                            <input type="text" id="contactName" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email</label>
+                            <input type="email" id="contactEmail" name="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactSubject">Тема</label>
+                        <input type="text" id="contactSubject" name="subject" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactMessage">Сообщение</label>
+                        <textarea id="contactMessage" name="message" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Отправить сообщение
+                    </button>
+                </form>
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Armenian Flavors</h3>
+                    <p>Кулинарный портал армянской кухни</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Разделы</h4>
+                    <a href="../index.html">Главная</a>
+                    <a href="catalog.html">Каталог рецептов</a>
+                    <a href="add-recipe.html">Добавить рецепт</a>
+                    <a href="about.html">О нас</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Помощь</h4>
+                    <a href="#">FAQ</a>
+                    <a href="#">Контакты</a>
+                    <a href="#">Правила сайта</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p><i class="fas fa-envelope"></i> info@armenianflavors.com</p>
+                    <p><i class="fas fa-phone"></i> +7 (XXX) XXX-XX-XX</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Armenian Flavors. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script src="../db.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Проверка авторизации
+            checkAuth();
+            
+            // Обработка формы обратной связи
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(this);
+                const data = {
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    subject: formData.get('subject'),
+                    message: formData.get('message'),
+                    date: new Date().toISOString()
+                };
+                
+                // Сохраняем сообщение в локальное хранилище
+                let messages = JSON.parse(localStorage.getItem('contactMessages')) || [];
+                messages.push(data);
+                localStorage.setItem('contactMessages', JSON.stringify(messages));
+                
+                // Очищаем форму и показываем сообщение
+                this.reset();
+                alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
+            });
+        });
+    </script>
+</body>
+</html>
